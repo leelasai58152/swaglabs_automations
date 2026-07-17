@@ -21,4 +21,17 @@ pipeline {
             }
         }
     }
+
+    post {
+        always {
+            publishHTML([
+                allowMissing: false,
+                alwaysLinkToLastBuild: true,
+                keepAll: true,
+                reportDir: 'SwagLabs_Automation/reports',
+                reportFiles: 'report.html',
+                reportName: 'PyTest HTML Report'
+            ])
+        }
+    }
 }
