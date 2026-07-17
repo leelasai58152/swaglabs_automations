@@ -1,0 +1,18 @@
+pipeline {
+    agent any
+
+    stages {
+
+        stage('Install Dependencies') {
+            steps {
+                bat 'C:\\Users\\yanam\\AppData\\Local\\Programs\\Python\\Python313\\python.exe -m pip install -r SwagLabs_Automation\\requirements.txt'
+            }
+        }
+
+        stage('Run Tests') {
+            steps {
+                bat 'cd SwagLabs_Automation && C:\\Users\\yanam\\AppData\\Local\\Programs\\Python\\Python313\\python.exe -m pytest -v'
+            }
+        }
+    }
+}
